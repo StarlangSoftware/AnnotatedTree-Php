@@ -341,7 +341,7 @@ class ParseTreeDrawable extends ParseTree
      * @return ParseTree A new parse tree by replacing the tag information of the all parse nodes with respect to the
      * morphological annotation of all parse nodes of the current parse tree.
      */
-    public function generateParseTree(string $surfaceForm): ParseTree{
+    public function generateParseTree(bool $surfaceForm): ParseTree{
         $rootNode = $this->root;
         $result = new ParseTree(new ParseNode($rootNode->getData()));
         $rootNode->generateParseNode($result->getRoot(), $surfaceForm);

@@ -33,7 +33,7 @@ class MorphologicalAnalysisLayer extends MultiWordMultiItemLayer
             $this->items = [];
             $this->items[] = $parse;
         } else {
-            $this->items[] = [];
+            $this->items = [];
             $this->layerValue = $layerValue;
             if ($layerValue != null) {
                 $splitWords = explode(" ", $layerValue);

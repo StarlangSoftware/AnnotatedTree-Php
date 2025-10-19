@@ -25,7 +25,7 @@ class MetaMorphemeLayer extends MetaMorphemesMovedLayer
      */
     public function setLayerValue(mixed $parse): void
     {
-        $this->layerValue = $parse->__toString();
+        $this->layerValue = $parse;
         $this->items = [];
         if ($this->layerValue != null){
             $splitWords = explode(" ", $this->layerValue);

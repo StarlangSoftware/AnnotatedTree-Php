@@ -26,7 +26,7 @@ class ParseNodeDrawable extends ParseNode
         parent::__construct();
         if ($parentOrLeftOrSymbol == null || $lineOrRightOrData != null) {
             $parent = $parentOrLeftOrSymbol;
-            if ($depth != null) {
+            if ($depth !== null) {
                 $line = $lineOrRightOrData;
                 $isLeaf = $dataOrIsLeaf;
                 $parenthesisCount = 0;
