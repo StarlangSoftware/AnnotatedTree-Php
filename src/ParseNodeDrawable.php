@@ -199,6 +199,10 @@ class ParseNodeDrawable extends ParseNode
         return $this->depth;
     }
 
+    public function getInOrderTraversalIndex(): int{
+        return $this->inOrderTraversalIndex;
+    }
+
     /**
      * Recursive setter method for the inOrderTraversalIndex attribute. InOrderTraversalIndex shows the index of the
      * node according to the inorder traversal.
