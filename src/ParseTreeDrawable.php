@@ -9,7 +9,6 @@ use olcaytaner\AnnotatedTree\Processor\Condition\IsEnglishLeafNode;
 use olcaytaner\AnnotatedTree\Processor\Condition\IsTurkishLeafNode;
 use olcaytaner\AnnotatedTree\Processor\NodeDrawableCollector;
 use olcaytaner\Corpus\FileDescription;
-use olcaytaner\ParseTree\NodeCondition\IsEnglishLeaf;
 use olcaytaner\ParseTree\ParseNode;
 use olcaytaner\ParseTree\ParseTree;
 use olcaytaner\ParseTree\Symbol;
@@ -17,13 +16,15 @@ use olcaytaner\ParseTree\Symbol;
 class ParseTreeDrawable extends ParseTree
 {
     private FileDescription $fileDescription;
+    private int $maxInOrderTraversalIndex;
 
     /**
      * Another constructor for the ParseTreeDrawable. Sets the file description and reads the tree from the file
      * description.
      * @param FileDescription $fileDescription File description that contains the path, index and extension information.
      */
-    public function constructor1(FileDescription $fileDescription){
+    public function constructor1(FileDescription $fileDescription): void
+    {
         $this->fileDescription = $fileDescription;
         $this->readFromFile($fileDescription->getPath());
     }
@@ -33,7 +34,8 @@ class ParseTreeDrawable extends ParseTree
      * description.
      * @param string $path Path of the tree
      */
-    public function constructor2(string $path){
+    public function constructor2(string $path): void
+    {
         $this->readFromFile($path);
     }
 
@@ -43,7 +45,8 @@ class ParseTreeDrawable extends ParseTree
      * @param string $path Path of the tree
      * @param FileDescription $fileDescription File description that contains the path, index and extension information.
      */
-    public function constructor3(string $path, FileDescription $fileDescription){
+    public function constructor3(string $path, FileDescription $fileDescription): void
+    {
         $this->fileDescription = new FileDescription($path, $fileDescription->getExtension(), $fileDescription->getIndex());
         $this->readFromFile($this->fileDescription->getPath());
     }
@@ -53,7 +56,8 @@ class ParseTreeDrawable extends ParseTree
      * @param string $path Path of the tree
      * @param string $rawFileName File name of the tree such as 0123.train.
      */
-    public function constructor4(string $path, string $rawFileName){
+    public function constructor4(string $path, string $rawFileName): void
+    {
         $this->fileDescription = new FileDescription($path, $rawFileName);
         $this->readFromFile($this->fileDescription->getPath());
     }
@@ -65,7 +69,8 @@ class ParseTreeDrawable extends ParseTree
      * @param string $extension Extension of the file such as train, test or dev.
      * @param int $index Index of the file such as 1235.
      */
-    public function constructor5(string $path, string $extension, int $index){
+    public function constructor5(string $path, string $extension, int $index): void
+    {
         $this->fileDescription = new FileDescription($path, $extension, $index);
         $this->readFromFile($this->fileDescription->getPath());
     }
@@ -86,10 +91,30 @@ class ParseTreeDrawable extends ParseTree
     }
 
     /**
+     * Sets the inOrderTraversalIndex attribute of all nodes in tree. InOrderTraversalIndex shows the index of the
+     * node according to the inorder traversal. Sets also the leafIndex attribute. LeafIndex shows the index of the
+     * leaf node according to the inorder traversal without considering non-leaf nodes.
+     */
+    private function updateTraversalIndexes(): void{
+        $this->root->inOrderTraversal(0);
+        $this->maxInOrderTraversalIndex = $this->root->maxInOrderTraversal();
+    }
+
+    /**
+     * Accessor for the maxInOrderTraversalIndex attribute
+     * @return int maxInOrderTraversalIndex attribute.
+     */
+    public function getMaxInOrderTraversalIndex(): int
+    {
+        return $this->maxInOrderTraversalIndex;
+    }
+
+    /**
      * Mutator method for the fileDescription attribute.
      * @param FileDescription $fileDescription New fileDescription value.
      */
-    public function setFileDescription(FileDescription $fileDescription){
+    public function setFileDescription(FileDescription $fileDescription): void
+    {
         $this->fileDescription = $fileDescription;
     }
 
@@ -128,6 +153,7 @@ class ParseTreeDrawable extends ParseTree
         if (str_contains($line, "(") && str_contains($line, ")")) {
             $line = trim(mb_substr($line, mb_strpos($line, "(") + 1, mb_strrpos($line, ")") - mb_strpos($line, "(") - 1));
             $this->root = new ParseNodeDrawable(null, $line, false, 0);
+            $this->updateTraversalIndexes();
         }
     }
 
@@ -173,6 +199,7 @@ class ParseTreeDrawable extends ParseTree
     public function moveLeft(ParseNode $node): void{
         if ($this->root != $node){
             $this->root->moveLeft($node);
+            $this->updateTraversalIndexes();
         }
     }
 
@@ -184,6 +211,7 @@ class ParseTreeDrawable extends ParseTree
     public function moveRight(ParseNode $node): void{
         if ($this->root != $node){
             $this->root->moveRight($node);
+            $this->updateTraversalIndexes();
         }
     }
 
@@ -221,6 +249,7 @@ class ParseTreeDrawable extends ParseTree
             $parent = $fromNode->getParent();
             $parent->removeChild($fromNode);
             $toNode->addChild($fromNode, $childIndex);
+            $this->updateTraversalIndexes();
             $this->root->updateDepths(0);
         }
     }
@@ -252,7 +281,7 @@ class ParseTreeDrawable extends ParseTree
      * @return bool True if all nodes in the tree has annotation with the given layer, false otherwise.
      */
     public function layerAll(ViewLayerType $layerType): bool{
-        $this->root->layerAll($layerType);
+        return $this->root->layerAll($layerType);
     }
 
     /**
@@ -337,7 +366,7 @@ class ParseTreeDrawable extends ParseTree
      * Recursive method that generates a new parse tree by replacing the tag information of the all parse nodes (with all
      * its descendants) with respect to the morphological annotation of all parse nodes (with all its descendants)
      * of the current parse tree.
-     * @param string $surfaceForm If true, tag will be replaced with the surface form annotation.
+     * @param bool $surfaceForm If true, tag will be replaced with the surface form annotation.
      * @return ParseTree A new parse tree by replacing the tag information of the all parse nodes with respect to the
      * morphological annotation of all parse nodes of the current parse tree.
      */
