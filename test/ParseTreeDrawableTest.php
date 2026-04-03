@@ -1,6 +1,7 @@
 <?php
 
 use olcaytaner\AnnotatedTree\ParseTreeDrawable;
+use olcaytaner\AnnotatedTree\TreeBankDrawable;
 use function PHPUnit\Framework\assertEquals;
 
 class ParseTreeDrawableTest extends \PHPUnit\Framework\TestCase
@@ -18,5 +19,9 @@ class ParseTreeDrawableTest extends \PHPUnit\Framework\TestCase
             "{turkish=savaşı}{morphologicalAnalysis=savaş+NOUN+A3SG+PNON+ACC}{metaMorphemes=savaş+yH}{semantics=TUR10-0135880}{namedEntity=NONE}{propbank=ARG1\$TUR10-0122540} " .
             "{turkish=bulandırmıştır}{morphologicalAnalysis=bulan+VERB^DB+VERB+CAUS+POS+NARR+COP+A3SG}{metaMorphemes=bulan+DHr+mHs+DHr}{semantics=TUR10-0122540}{namedEntity=NONE}{propbank=PREDICATE\$TUR10-0122540} " .
             "{turkish=.}{morphologicalAnalysis=.+PUNC}{metaMorphemes=.}{semantics=TUR10-1081860}{namedEntity=NONE}{propbank=NONE}", $tree0->generateAnnotatedSentence()->__toString());
+    }
+
+    public function testTreebank(): void{
+        $treebank = new TreeBankDrawable("../trees");
     }
 }
