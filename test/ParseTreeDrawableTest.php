@@ -21,7 +21,4 @@ class ParseTreeDrawableTest extends \PHPUnit\Framework\TestCase
             "{turkish=.}{morphologicalAnalysis=.+PUNC}{metaMorphemes=.}{semantics=TUR10-1081860}{namedEntity=NONE}{propbank=NONE}", $tree0->generateAnnotatedSentence()->__toString());
     }
 
-    public function testTreebank(): void{
-        $treebank = new TreeBankDrawable("../trees");
-    }
 }

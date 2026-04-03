@@ -16,7 +16,6 @@ use olcaytaner\ParseTree\Symbol;
 class ParseTreeDrawable extends ParseTree
 {
     private FileDescription $fileDescription;
-    private int $maxInOrderTraversalIndex;
 
     /**
      * Another constructor for the ParseTreeDrawable. Sets the file description and reads the tree from the file
@@ -88,25 +87,6 @@ class ParseTreeDrawable extends ParseTree
         } else {
             $this->constructor5($fileDescriptionOrPath, $fileDescriptionOrFileName, $index);
         }
-    }
-
-    /**
-     * Sets the inOrderTraversalIndex attribute of all nodes in tree. InOrderTraversalIndex shows the index of the
-     * node according to the inorder traversal. Sets also the leafIndex attribute. LeafIndex shows the index of the
-     * leaf node according to the inorder traversal without considering non-leaf nodes.
-     */
-    private function updateTraversalIndexes(): void{
-        $this->root->inOrderTraversal(0);
-        $this->maxInOrderTraversalIndex = $this->root->maxInOrderTraversal();
-    }
-
-    /**
-     * Accessor for the maxInOrderTraversalIndex attribute
-     * @return int maxInOrderTraversalIndex attribute.
-     */
-    public function getMaxInOrderTraversalIndex(): int
-    {
-        return $this->maxInOrderTraversalIndex;
     }
 
     /**

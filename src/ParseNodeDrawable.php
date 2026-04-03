@@ -10,8 +10,6 @@ use olcaytaner\ParseTree\Symbol;
 class ParseNodeDrawable extends ParseNode
 {
     protected ?LayerInfo $layers = null;
-    protected int $depth;
-    protected int $inOrderTraversalIndex;
 
     /**
      * Constructs a ParseNodeDrawable from a single line. If the node is a leaf node, it only sets the data. Otherwise,
@@ -187,60 +185,6 @@ class ParseNodeDrawable extends ParseNode
                 return $this->data->getName();
             }
             return $this->layers->getLayerData($layerType);
-        }
-    }
-
-    /**
-     * Accessor for the depth attribute
-     * @return int Depth attribute
-     */
-    public function getDepth(): int
-    {
-        return $this->depth;
-    }
-
-    public function getInOrderTraversalIndex(): int{
-        return $this->inOrderTraversalIndex;
-    }
-
-    /**
-     * Recursive setter method for the inOrderTraversalIndex attribute. InOrderTraversalIndex shows the index of the
-     * node according to the inorder traversal.
-     * @param int $pos Current inorder traversal index
-     * @return int Update inorder traversal index
-     */
-    public function inOrderTraversal(int $pos): int{
-        for ($i = 0; $i < count($this->children) / 2; $i++) {
-            $pos = $this->children[$i]->inOrderTraversal($pos);
-        }
-        $this->inOrderTraversalIndex = $pos;
-        if (count($this->children) % 2 != 1) {
-            $pos++;
-        }
-        for ($i = count($this->children) / 2; $i < count($this->children); $i++) {
-            $pos = $this->children[$i]->inOrderTraversal($pos);
-        }
-        return $pos;
-    }
-
-    /**
-     * Returns the maximum inorder traversal index considering this node and all of its descendants.
-     * @return int The maximum inorder traversal index considering this node and all of its descendants.
-     */
-    public function maxInOrderTraversal(): int
-    {
-        if (count($this->children) == 0) {
-            return $this->inOrderTraversalIndex;
-        } else {
-            $maxIndex = $this->inOrderTraversalIndex;
-            for ($i = 0; $i < count($this->children); $i++) {
-                $child = $this->children[$i];
-                $childIndex = $child->maxInOrderTraversal();
-                if ($childIndex > $maxIndex) {
-                    $maxIndex = $childIndex;
-                }
-            }
-            return $maxIndex;
         }
     }
 
