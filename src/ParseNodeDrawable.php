@@ -213,21 +213,6 @@ class ParseNodeDrawable extends ParseNode
     }
 
     /**
-     * Calculates the maximum depth of the subtree rooted from this node.
-     * @return int The maximum depth of the subtree rooted from this node.
-     */
-    public function maxDepth(): int
-    {
-        $depth = $this->depth;
-        foreach ($this->children as $child) {
-            if ($child->maxDepth() > $depth) {
-                $depth = $child->maxDepth();
-            }
-        }
-        return $depth;
-    }
-
-    /**
      * Recursive method that checks if all nodes in the subtree rooted with this node has the annotation in the given
      * layer.
      * @param ViewLayerType $layerType Layer name

@@ -164,14 +164,6 @@ class ParseTreeDrawable extends ParseTree
     }
 
     /**
-     * Calculates the maximum depth of the tree.
-     * @return int The maximum depth of the tree.
-     */
-    public function maxDepth(): int{
-        return $this->root->maxDepth();
-    }
-
-    /**
      * Swaps the given child node of this node with the previous sibling of that given node. If the given node is the
      * leftmost child, it swaps with the last node.
      * @param ParseNode $node Node to be swapped.
