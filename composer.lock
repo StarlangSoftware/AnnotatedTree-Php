@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b6e2bdd8adcf1c43df8fd5887de7ddf0",
+    "content-hash": "b02cd427086e63b23f84d9322a2f0d40",
     "packages": [],
     "packages-dev": [
         {
@@ -127,16 +127,16 @@
         },
         {
             "name": "olcaytaner/annotatedsentence",
-            "version": "1.0.8",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/StarlangSoftware/AnnotatedSentence-Php.git",
-                "reference": "b06b5e1543af87fa4167c3bc77bbbb3f95d878fe"
+                "reference": "0823b432b947d2944bf5016598245eeec3ccd8c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StarlangSoftware/AnnotatedSentence-Php/zipball/b06b5e1543af87fa4167c3bc77bbbb3f95d878fe",
-                "reference": "b06b5e1543af87fa4167c3bc77bbbb3f95d878fe",
+                "url": "https://api.github.com/repos/StarlangSoftware/AnnotatedSentence-Php/zipball/0823b432b947d2944bf5016598245eeec3ccd8c1",
+                "reference": "0823b432b947d2944bf5016598245eeec3ccd8c1",
                 "shasum": ""
             },
             "require": {
@@ -145,14 +145,14 @@
             },
             "require-dev": {
                 "olcaytaner/corpus": "1.0.2",
-                "olcaytaner/dependencyparser": "1.0.0",
-                "olcaytaner/dictionary": "1.0.1",
+                "olcaytaner/dependencyparser": "1.0.2",
+                "olcaytaner/dictionary": "1.0.3",
                 "olcaytaner/framenet": "1.0.1",
-                "olcaytaner/morphologicalanalysis": "1.0.1",
+                "olcaytaner/morphologicalanalysis": "1.0.3",
                 "olcaytaner/namedentityrecognition": "1.0.0",
                 "olcaytaner/propbank": "1.0.2",
                 "olcaytaner/sentinet": "1.0.0",
-                "olcaytaner/wordnet": "1.0.1",
+                "olcaytaner/wordnet": "1.0.2",
                 "olcaytaner/xmlparser": "1.0.1",
                 "phpunit/phpunit": "11.4.0"
             },
@@ -176,9 +176,9 @@
             "description": "Turkish Annotated Sentence library",
             "support": {
                 "issues": "https://github.com/StarlangSoftware/AnnotatedSentence-Php/issues",
-                "source": "https://github.com/StarlangSoftware/AnnotatedSentence-Php/tree/1.0.8"
+                "source": "https://github.com/StarlangSoftware/AnnotatedSentence-Php/tree/1.0.9"
             },
-            "time": "2026-04-01T06:22:58+00:00"
+            "time": "2026-05-08T18:35:35+00:00"
         },
         {
             "name": "olcaytaner/corpus",
@@ -230,16 +230,16 @@
         },
         {
             "name": "olcaytaner/dependencyparser",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/StarlangSoftware/TurkishDependencyParser-Php.git",
-                "reference": "11be36f1e3ed5460fac0bd2e0451816ecf9726ee"
+                "reference": "f41c4028f7bdbd4ae99648edf7698916a48cc6b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StarlangSoftware/TurkishDependencyParser-Php/zipball/11be36f1e3ed5460fac0bd2e0451816ecf9726ee",
-                "reference": "11be36f1e3ed5460fac0bd2e0451816ecf9726ee",
+                "url": "https://api.github.com/repos/StarlangSoftware/TurkishDependencyParser-Php/zipball/f41c4028f7bdbd4ae99648edf7698916a48cc6b2",
+                "reference": "f41c4028f7bdbd4ae99648edf7698916a48cc6b2",
                 "shasum": ""
             },
             "require": {
@@ -249,8 +249,8 @@
             "require-dev": {
                 "olcaytaner/corpus": "1.0.0",
                 "olcaytaner/datastructure": "1.0.1",
-                "olcaytaner/dictionary": "1.0.0",
-                "olcaytaner/morphologicalanalysis": "1.0.0",
+                "olcaytaner/dictionary": "1.0.3",
+                "olcaytaner/morphologicalanalysis": "1.0.3",
                 "olcaytaner/xmlparser": "1.0.1",
                 "phpunit/phpunit": "11.4.0"
             },
@@ -274,9 +274,9 @@
             "description": "Dependency TreeBank library",
             "support": {
                 "issues": "https://github.com/StarlangSoftware/TurkishDependencyParser-Php/issues",
-                "source": "https://github.com/StarlangSoftware/TurkishDependencyParser-Php/tree/1.0.0"
+                "source": "https://github.com/StarlangSoftware/TurkishDependencyParser-Php/tree/1.0.2"
             },
-            "time": "2025-09-24T19:01:39+00:00"
+            "time": "2026-05-08T18:31:17+00:00"
         },
         {
             "name": "olcaytaner/dictionary",
@@ -369,16 +369,16 @@
         },
         {
             "name": "olcaytaner/morphologicalanalysis",
-            "version": "1.0.1",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/StarlangSoftware/TurkishMorphologicalAnalysis-Php.git",
-                "reference": "0b69ff8e7eea09ead12385584885441af06aeeb0"
+                "reference": "5fd27b3e18432ea7d84470a170d6ac85bdd4de4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StarlangSoftware/TurkishMorphologicalAnalysis-Php/zipball/0b69ff8e7eea09ead12385584885441af06aeeb0",
-                "reference": "0b69ff8e7eea09ead12385584885441af06aeeb0",
+                "url": "https://api.github.com/repos/StarlangSoftware/TurkishMorphologicalAnalysis-Php/zipball/5fd27b3e18432ea7d84470a170d6ac85bdd4de4c",
+                "reference": "5fd27b3e18432ea7d84470a170d6ac85bdd4de4c",
                 "shasum": ""
             },
             "require": {
@@ -388,7 +388,7 @@
             "require-dev": {
                 "olcaytaner/corpus": "1.0.0",
                 "olcaytaner/datastructure": "1.0.1",
-                "olcaytaner/dictionary": "1.0.0",
+                "olcaytaner/dictionary": "1.0.3",
                 "olcaytaner/ngram": "1.0.0",
                 "olcaytaner/util": "1.0.2",
                 "olcaytaner/xmlparser": "1.0.1",
@@ -414,9 +414,9 @@
             "description": "Morphological analysis library",
             "support": {
                 "issues": "https://github.com/StarlangSoftware/TurkishMorphologicalAnalysis-Php/issues",
-                "source": "https://github.com/StarlangSoftware/TurkishMorphologicalAnalysis-Php/tree/1.0.1"
+                "source": "https://github.com/StarlangSoftware/TurkishMorphologicalAnalysis-Php/tree/1.0.3"
             },
-            "time": "2025-10-11T09:45:20+00:00"
+            "time": "2026-05-08T18:22:53+00:00"
         },
         {
             "name": "olcaytaner/namedentityrecognition",
@@ -594,16 +594,16 @@
         },
         {
             "name": "olcaytaner/wordnet",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/StarlangSoftware/TurkishWordNet-Php.git",
-                "reference": "27e2d0ae7e6dd6ea83df50149f197b5d98a47e82"
+                "reference": "2a6d4915f833e9e05693d2808d72508034d378fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StarlangSoftware/TurkishWordNet-Php/zipball/27e2d0ae7e6dd6ea83df50149f197b5d98a47e82",
-                "reference": "27e2d0ae7e6dd6ea83df50149f197b5d98a47e82",
+                "url": "https://api.github.com/repos/StarlangSoftware/TurkishWordNet-Php/zipball/2a6d4915f833e9e05693d2808d72508034d378fb",
+                "reference": "2a6d4915f833e9e05693d2808d72508034d378fb",
                 "shasum": ""
             },
             "require": {
@@ -611,8 +611,8 @@
                 "ext-mbstring": "*"
             },
             "require-dev": {
-                "olcaytaner/dictionary": "1.0.0",
-                "olcaytaner/morphologicalanalysis": "1.0.0",
+                "olcaytaner/dictionary": "1.0.3",
+                "olcaytaner/morphologicalanalysis": "1.0.3",
                 "olcaytaner/xmlparser": "1.0.1",
                 "phpunit/phpunit": "11.4.0"
             },
@@ -636,9 +636,9 @@
             "description": "Wordnet library",
             "support": {
                 "issues": "https://github.com/StarlangSoftware/TurkishWordNet-Php/issues",
-                "source": "https://github.com/StarlangSoftware/TurkishWordNet-Php/tree/1.0.1"
+                "source": "https://github.com/StarlangSoftware/TurkishWordNet-Php/tree/1.0.2"
             },
-            "time": "2025-10-07T10:59:11+00:00"
+            "time": "2026-05-08T18:29:50+00:00"
         },
         {
             "name": "phar-io/manifest",
